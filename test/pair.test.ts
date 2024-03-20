@@ -4,6 +4,9 @@ describe('Pair', () => {
   const USDC = new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
   const DAI = new Token(ChainId.MAINNET, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
 
+const CROSSFI_USD = new Token(ChainId.CROSSFI, '0xC692E6EDe21eC911D9E35C6A52bdD31b2d4b4425', 18, 'XUSD', 'XUSD')
+const XFI = new Token(ChainId.CROSSFI, '0x28cC5eDd54B1E4565317C3e0Cfab551926A4CD2a', 18, 'XFI', 'XFI')
+
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
       expect(() => new Pair(new TokenAmount(USDC, '100'), new TokenAmount(WETH[ChainId.RINKEBY], '100'))).toThrow(
@@ -14,7 +17,7 @@ describe('Pair', () => {
 
   describe('#getAddress', () => {
     it('returns the correct address', () => {
-      expect(Pair.getAddress(USDC, DAI)).toEqual('0xAE461cA67B15dc8dc81CE7615e0320dA1A9aB8D5')
+      expect(Pair.getAddress(CROSSFI_USD, XFI)).toEqual('0x83423B15A8E505056CB9b8aaEEA0cf8A9F453637')
     })
   })
 
